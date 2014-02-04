@@ -21,13 +21,14 @@
 		margin:auto;
 		width:960px;
 		height: 100%;
-	}	
+	}
+
 }
 
 /* Normal Mode */
-.sudoku-wrapper.default-theme {
+.sudoku-wrapper {
 	position: relative;
-	min-width: 300px;
+	min-width: 280px;
 	width:100%;
 	height:100%;
 	.sudoku-container {
@@ -64,7 +65,7 @@
                 font-weight: 500;
                 font-size:13px;
                 font-family: Arial;
-				$border-color: #999;
+				$border-color: #888;
                 &.bt { border-top:2px solid $border-color;}
                 &.br { border-right:2px solid $border-color;}
                 &.bb { border-bottom:2px solid $border-color;}
@@ -87,7 +88,7 @@
 					border-right:0;
 					border-left:0;
 					border-bottom:0;
-					background-color: transparent;
+					background-color: White;
 					font-size:13px;
 					font-family: Arial;
 					.sudoku-reset-trigger {
@@ -97,6 +98,7 @@
 						span.icon-cycle {
 							position: relative;
 							top:4px;
+							font-size: 1.4em;
 						}
 					}
 					.sudoku-fullscreen-trigger {
@@ -106,6 +108,7 @@
 						span.icon-resize-enlarge, span.icon-resize-shrink {
 							position: relative;
 							top:4px;
+							font-size: 1.4em;
 						}
 					}
 				}
@@ -118,6 +121,7 @@
 						width: 100%;
 						height: 100%;
 						border:none;
+						margin:0;
 						border-radius:0;
 						box-shadow: none;
 						color:#555;
@@ -131,7 +135,6 @@
 		                }
 		                &.not-sure{
 		                    background:rgb(254,236,164);
-		                    color:White;
 		                }
 					}
 				} //.editable
@@ -157,7 +160,7 @@
 			top:0;
 			bottom:0;
 			right:0;
-			overflow: auto;
+			overflow: hidden;
 			margin: auto;
 			line-height: 100%;
 			font-size: 150px;
@@ -173,6 +176,166 @@
 		}
 	}
 } //.sudoku-wrapper
+
+
+.sudoku-wrapper {
+	$indianred: darken(#cd5c5c, 15%);
+	$steelblue: darken(#4682b4, 15%);
+	$teal: darken(#008080, 15%);
+	$palevioletred: darken(#db7093, 15%);
+
+	&.glyphs {
+		font-family: 'icomoon';
+		.sudoku-container table tr td:not(.sudoku-options){
+			font-family: 'icomoon';
+			font-size:24px!important;
+			&.editable input {
+				font-size:24px!important;
+			}
+		}
+		&.sudoku-options {
+			font-family: Arial;
+		}
+	}
+	&.teal-theme {
+		.sudoku-container table tr td{
+			color: $teal;
+
+			&.editable input {
+				color: $teal !important;
+			}
+
+			&.bt {
+				border-top-color: $teal;
+			}
+			&.bb {
+				border-bottom-color: $teal;
+			}
+			&.bl {
+				border-left-color: $teal;
+			}
+			&.br {
+				border-right-color: $teal;
+			}
+
+			&.sudoku-key {
+				color:white;
+				background-color: $teal;
+				border-color:$teal!important;
+				&:hover {
+					background: white;
+					color: $teal;
+				}
+			}
+		}
+	}
+	&.indianred-theme {
+		.sudoku-container table tr td{
+			color: $indianred;
+
+			&.editable input {
+				color: $indianred !important;
+			}
+
+			&.bt {
+				border-top-color: $indianred;
+			}
+			&.bb {
+				border-bottom-color: $indianred;
+			}
+			&.bl {
+				border-left-color: $indianred;
+			}
+			&.br {
+				border-right-color: $indianred;
+			}
+
+			&.sudoku-key {
+				color:white;
+				background-color: $indianred;
+				border-color:$indianred!important;
+				&:hover {
+					background: white;
+					color: $indianred;
+				}
+			}
+		}
+	}
+	&.steelblue-theme {
+		.sudoku-container table tr td{
+			color: $steelblue;
+
+			&.editable input {
+				color: $steelblue !important;
+			}
+
+			&.bt {
+				border-top-color: $steelblue;
+			}
+			&.bb {
+				border-bottom-color: $steelblue;
+			}
+			&.bl {
+				border-left-color: $steelblue;
+			}
+			&.br {
+				border-right-color: $steelblue;
+			}
+
+			&.sudoku-key {
+				color:white;
+				background-color: $steelblue;
+				border-color:$steelblue!important;
+				&:hover {
+					background: white;
+					color: $steelblue;
+				}
+			}
+		}
+	}
+	&.palevioletred-theme {
+		.sudoku-container table tr td{
+			color: $palevioletred;
+
+			&.editable input {
+				color: $palevioletred !important;
+			}
+
+			&.bt {
+				border-top-color: $palevioletred;
+			}
+			&.bb {
+				border-bottom-color: $palevioletred;
+			}
+			&.bl {
+				border-left-color: $palevioletred;
+			}
+			&.br {
+				border-right-color: $palevioletred;
+			}
+
+			&.sudoku-key {
+				color:white;
+				background-color: $palevioletred;
+				border-color:$palevioletred!important;
+				&:hover {
+					background: white;
+					color: $palevioletred;
+				}
+			}
+		}
+	}
+}
+
+.sudoku-fullscreen-trigger > .icon-resize-enlarge {
+	font-size: 21px!important;
+}
+.sudoku-reset-trigger > .icon-cycle {
+	font-size: 21px!important;
+}
+.sudoku-fullscreen .sudoku-reset-trigger > span.icon-cycle {
+	font-size: 1.4em!important;
+}
 
 
 
