@@ -24,10 +24,16 @@ var defaults = {
 	};
 ```
 
+Live Demo
+----------
+[http://sudoku.andreipitz.eu]
+
+
 Version
 ----
 
 1.0
+
 
 Tech
 -----------
