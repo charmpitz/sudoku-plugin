@@ -28,35 +28,42 @@ var defaults = {
 ```
 ### Available Methods:
 
-* readonly
+* readonly - Makes the instance readonly
 ```js
-$(elem).sudoku('readonly', true);
+$(elem).sudoku('readonly');
 ```
-* editable
+
+* editable - Enables editing capabilities
 ```js
 $(elem).sudoku('editable', true);
 ```
-* fullscreen
+
+* fullscreen - Enable/Disable fullscreen mode on certain instance
 ```js
 $(elem).sudoku('fullscreen', true);
 ```
-* touch
+
+* touch - Enable/Disable touch capabilities for the instance
 ```js
 $(elem).sudoku('touch', true);
 ```
-* keyboard
+
+* keyboard - Show/Hide the side-keyboard (**must** be enabled for touch)
 ```js
 $(elem).sudoku('keyboard', true);
 ```
-* reset
+
+* reset - Resets the cells
 ```js
 $(elem).sudoku('reset');
 ```
-* hideOptions
+
+* hideOptions - Hides the options panel
 ```js
 $(elem).sudoku('hideOptions');
 ```
-* showOptions
+
+* showOptions - Shows the options panel
 ```js
 $(elem).sudoku('showOptions');
 ```
