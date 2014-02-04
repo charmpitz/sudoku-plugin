@@ -1,0 +1,34 @@
+{
+    "name": "sudoku",
+    "title": "jQuery Sudoku",
+    "description": "jQuery plugin for making sudoku interfaces",
+    "keywords": [
+        "sudoku",
+        "responsive",
+        "game",
+        "interface"
+    ],
+    "version": "1.0",
+    "author": {
+        "name": "Andrei Pit",
+        "url": "https://github.com/charmpitz/sudoku-plugin"
+    },
+    "maintainers": [
+        {
+            "name": "Andrei Pit",
+            "email": "charmpitz@gmail.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/charmpitz/sudoku-plugin/blob/2.1.2/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/charmpitz/sudoku-plugin/issues",
+    "homepage": "https://github.com/charmpitz/sudoku-plugin",
+    "docs": "https://github.com/charmpitz/sudoku-plugin",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
