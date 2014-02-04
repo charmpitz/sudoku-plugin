@@ -1,0 +1,431 @@
+
+.wrapper {
+	position:relative;
+	margin:auto;
+	width:800px;
+	height:800px;
+}
+
+
+
+/* Fullscreen Mode */
+.sudoku-fullscreen {
+	position: fixed;
+	top:0;
+	left:0;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	background-color:white;
+	.sudoku-wrapper {
+		margin:auto;
+		width:960px;
+		height: 100%;
+	}	
+}
+
+/* Normal Mode */
+.sudoku-wrapper.default-theme {
+	position: relative;
+	min-width: 300px;
+	width:100%;
+	height:100%;
+	.sudoku-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition:opacity 1s ease-in-out;
+		&.completed {
+			opacity: 0.5;
+		}
+		table {
+			position: relative;
+			float:right;
+            margin:0;
+            padding:0;
+			width:100%;
+			height:100%;
+            border:0;
+            border-spacing: 0;
+            border-collapse:collapse;
+			table-layout: fixed;
+            tr td {
+                position:relative;
+                overflow:hidden;
+				box-sizing:border-box;
+                padding:0;
+                width: 10%;
+                height:10%;
+                border:1px solid #DDD;
+                background:#F2F2F2;
+                background-clip: padding-box;
+				vertical-align: middle;
+                text-align: center;
+                font-weight: 500;
+                font-size:13px;
+                font-family: Arial;
+				$border-color: #999;
+                &.bt { border-top:2px solid $border-color;}
+                &.br { border-right:2px solid $border-color;}
+                &.bb { border-bottom:2px solid $border-color;}
+                &.bl { border-left:2px solid $border-color;}
+				
+				&.sudoku-key {
+					border-top:2px solid $border-color;
+					border-right:2px solid $border-color;
+					border-bottom:2px solid $border-color;
+					border-left:2px solid $border-color;
+					background: #888;
+					color:white;
+					&:hover {
+						background: white;
+						color:#555;
+						cursor:pointer;
+					}
+				}
+				&.sudoku-options {
+					border-right:0;
+					border-left:0;
+					border-bottom:0;
+					background-color: transparent;
+					font-size:13px;
+					font-family: Arial;
+					.sudoku-reset-trigger {
+						cursor:pointer;
+						float:right;
+						margin-right: 15px;
+						span.icon-cycle {
+							position: relative;
+							top:4px;
+						}
+					}
+					.sudoku-fullscreen-trigger {
+						cursor:pointer;
+						float:right;
+						padding-right: 5px;
+						span.icon-resize-enlarge, span.icon-resize-shrink {
+							position: relative;
+							top:4px;
+						}
+					}
+				}
+				&.editable{
+	                background-color:white;
+					> input[type=text] {
+						position: relative;
+						display: block;
+						padding:0;
+						width: 100%;
+						height: 100%;
+						border:none;
+						border-radius:0;
+						box-shadow: none;
+						color:#555;
+						text-align: center;
+						text-shadow:none;
+		                cursor:pointer;
+		                transition:background 0.14s ease-in-out;
+		                &.current {
+		                    outline:none;
+		                    background:#DDD;
+		                }
+		                &.not-sure{
+		                    background:rgb(254,236,164);
+		                    color:White;
+		                }
+					}
+				} //.editable
+            } //tr td
+		} //table
+	} //.sudoku-container
+	.sudoku-complete {
+		display: none;
+		&.active {
+			display:block;
+		}
+		position: absolute;
+		top:0;
+		left:0;
+		width: 100%;
+		height: 100%;
+		z-index: 500;
+		.icon-checkmark, .message {
+			position: absolute;
+			width: 50%;
+			height:150px;
+			left:0;
+			top:0;
+			bottom:0;
+			right:0;
+			overflow: auto;
+			margin: auto;
+			line-height: 100%;
+			font-size: 150px;
+			color:green;
+			text-align: center;
+		}
+		.message {
+			width: 100%;
+			font-size:40px;
+			height:80px;
+			top:-120px;
+			font-family: Arial;
+		}
+	}
+} //.sudoku-wrapper
+
+
+
+@-moz-keyframes tinUpIn {
+  	0% {
+	    opacity: 0;
+	    -webkit-transform: scale(1, 1) translateY(-900%);
+	    -moz-transform: scale(1, 1) translateY(-900%);
+	    -ms-transform: scale(1, 1) translateY(-900%);
+	    -o-transform: scale(1, 1) translateY(-900%);
+	    transform: scale(1, 1) translateY(-900%);
+  	}
+
+  	50%, 70%, 90% {
+	    opacity: 1;
+	    -webkit-transform: scale(1.1, 1.1) translateY(0);
+	    -moz-transform: scale(1.1, 1.1) translateY(0);
+	    -ms-transform: scale(1.1, 1.1) translateY(0);
+	    -o-transform: scale(1.1, 1.1) translateY(0);
+	    transform: scale(1.1, 1.1) translateY(0);
+  	}
+
+  	60%, 80%, 100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1, 1) translateY(0);
+	    -moz-transform: scale(1, 1) translateY(0);
+	    -ms-transform: scale(1, 1) translateY(0);
+	    -o-transform: scale(1, 1) translateY(0);
+	    transform: scale(1, 1) translateY(0);
+  	}
+}
+@-webkit-keyframes tinUpIn {
+  	0% {
+	    opacity: 0;
+	    -webkit-transform: scale(1, 1) translateY(-900%);
+	    -moz-transform: scale(1, 1) translateY(-900%);
+	    -ms-transform: scale(1, 1) translateY(-900%);
+	    -o-transform: scale(1, 1) translateY(-900%);
+	    transform: scale(1, 1) translateY(-900%);
+  	}
+
+  	50%, 70%, 90% {
+	    opacity: 1;
+	    -webkit-transform: scale(1.1, 1.1) translateY(0);
+	    -moz-transform: scale(1.1, 1.1) translateY(0);
+	    -ms-transform: scale(1.1, 1.1) translateY(0);
+	    -o-transform: scale(1.1, 1.1) translateY(0);
+	    transform: scale(1.1, 1.1) translateY(0);
+  	}
+
+  	60%, 80%, 100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1, 1) translateY(0);
+	    -moz-transform: scale(1, 1) translateY(0);
+	    -ms-transform: scale(1, 1) translateY(0);
+	    -o-transform: scale(1, 1) translateY(0);
+	    transform: scale(1, 1) translateY(0);
+  	}
+}
+@-o-keyframes tinUpIn {
+  	0% {
+	    opacity: 0;
+	    -webkit-transform: scale(1, 1) translateY(-900%);
+	    -moz-transform: scale(1, 1) translateY(-900%);
+	    -ms-transform: scale(1, 1) translateY(-900%);
+	    -o-transform: scale(1, 1) translateY(-900%);
+	    transform: scale(1, 1) translateY(-900%);
+  	}
+
+  	50%, 70%, 90% {
+	    opacity: 1;
+	    -webkit-transform: scale(1.1, 1.1) translateY(0);
+	    -moz-transform: scale(1.1, 1.1) translateY(0);
+	    -ms-transform: scale(1.1, 1.1) translateY(0);
+	    -o-transform: scale(1.1, 1.1) translateY(0);
+	    transform: scale(1.1, 1.1) translateY(0);
+  	}
+
+  	60%, 80%, 100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1, 1) translateY(0);
+	    -moz-transform: scale(1, 1) translateY(0);
+	    -ms-transform: scale(1, 1) translateY(0);
+	    -o-transform: scale(1, 1) translateY(0);
+	    transform: scale(1, 1) translateY(0);
+  	}
+}
+@-ms-keyframes tinUpIn {
+  	0% {
+	    opacity: 0;
+	    -webkit-transform: scale(1, 1) translateY(-900%);
+	    -moz-transform: scale(1, 1) translateY(-900%);
+	    -ms-transform: scale(1, 1) translateY(-900%);
+	    -o-transform: scale(1, 1) translateY(-900%);
+	    transform: scale(1, 1) translateY(-900%);
+  	}
+
+  	50%, 70%, 90% {
+	    opacity: 1;
+	    -webkit-transform: scale(1.1, 1.1) translateY(0);
+	    -moz-transform: scale(1.1, 1.1) translateY(0);
+	    -ms-transform: scale(1.1, 1.1) translateY(0);
+	    -o-transform: scale(1.1, 1.1) translateY(0);
+	    transform: scale(1.1, 1.1) translateY(0);
+  	}
+
+  	60%, 80%, 100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1, 1) translateY(0);
+	    -moz-transform: scale(1, 1) translateY(0);
+	    -ms-transform: scale(1, 1) translateY(0);
+	    -o-transform: scale(1, 1) translateY(0);
+	    transform: scale(1, 1) translateY(0);
+  	}
+}
+@keyframes tinUpIn {
+  	0% {
+	    opacity: 0;
+	    -webkit-transform: scale(1, 1) translateY(-900%);
+	    -moz-transform: scale(1, 1) translateY(-900%);
+	    -ms-transform: scale(1, 1) translateY(-900%);
+	    -o-transform: scale(1, 1) translateY(-900%);
+	    transform: scale(1, 1) translateY(-900%);
+  	}
+
+  	50%, 70%, 90% {
+	    opacity: 1;
+	    -webkit-transform: scale(1.1, 1.1) translateY(0);
+	    -moz-transform: scale(1.1, 1.1) translateY(0);
+	    -ms-transform: scale(1.1, 1.1) translateY(0);
+	    -o-transform: scale(1.1, 1.1) translateY(0);
+	    transform: scale(1.1, 1.1) translateY(0);
+  	}
+
+  	60%, 80%, 100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1, 1) translateY(0);
+	    -moz-transform: scale(1, 1) translateY(0);
+	    -ms-transform: scale(1, 1) translateY(0);
+	    -o-transform: scale(1, 1) translateY(0);
+	    transform: scale(1, 1) translateY(0);
+  	}
+}
+
+@keyframes blinking {
+  	0% {
+	    opacity: 1;
+  	}
+
+  	30% {
+	    opacity: 0.3;
+  	}
+
+  	60% {
+  		opacity:0.6;
+  	}
+
+	100% {
+	    opacity: 0.5;
+  	}
+}
+@-ms-keyframes blinking {
+  	0% {
+	    opacity: 1;
+  	}
+
+  	30% {
+	    opacity: 0.3;
+  	}
+
+  	60% {
+  		opacity:0.6;
+  	}
+
+	100% {
+	    opacity: 0.5;
+  	}
+}
+@-o-keyframes blinking {
+  	0% {
+	    opacity: 1;
+  	}
+
+  	30% {
+	    opacity: 0.3;
+  	}
+
+  	60% {
+  		opacity:0.6;
+  	}
+
+	100% {
+	    opacity: 0.5;
+  	}
+}
+@-moz-keyframes blinking {
+  	0% {
+	    opacity: 1;
+  	}
+
+  	30% {
+	    opacity: 0.3;
+  	}
+
+  	60% {
+  		opacity:0.6;
+  	}
+
+	100% {
+	    opacity: 0.5;
+  	}
+}
+@-webkit-keyframes blinking {
+  	0% {
+	    opacity: 1;
+  	}
+
+  	30% {
+	    opacity: 0.3;
+  	}
+
+  	60% {
+  		opacity:0.6;
+  	}
+
+	100% {
+	    opacity: 0.5;
+  	}
+}
+.blinking {
+  -webkit-animation-name: blinking;
+  -moz-animation-name: blinking;
+  -ms-animation-name: blinking;
+  -o-animation-name: blinking;
+  animation-name: blinking;
+}
+.tinUpIn {
+	-webkit-animation-name: tinUpIn;
+	-moz-animation-name: tinUpIn;
+	-ms-animation-name: tinUpIn;
+	-o-animation-name: tinUpIn;
+	animation-name: tinUpIn;
+}
+$time:1s;
+
+.magictime {
+	-webkit-animation-duration: $time;
+	-moz-animation-duration: $time;
+	-o-animation-duration: $time;
+	animation-duration: $time;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-ms-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	animation-fill-mode: both;
+}

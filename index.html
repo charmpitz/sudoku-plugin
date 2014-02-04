@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.2, user-scalable=no">
+	<title>Sudoku Plugin</title>
+
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Bilbo|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,800,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	
+	<!-- CSS -->
+	<link type="text/css" rel="stylesheet" href="glyphs/icomoon/style.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/sudoku.css">
+
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.hammer.min.js"></script>
+	<script src="js/jquery.stopwatch.js"></script>
+	<script src="js/sudoku.js"></script>
+</head>
+<body>
+<div class="container-full">
+	<div class="row">
+		<div class="col six tablet-full mobile-full">
+			<div id="sudoku1" class="sudoku-wrapper default-theme" data-md5="527fd30a1a2c35cb126e5ada85681edd">
+				<div class="sudoku-container">
+					<table>
+						<tr>
+							<td class="sudoku-key">1</td>
+							<td class="bt bl">1</td>
+							<td class="bt">2</td>
+							<td class="bt br editable"><input type="text"></td>
+							<td class="bt bl editable"><input type="text"></td>
+							<td class="bt editable"><input type="text"></td>
+							<td class="bt br">6</td>
+							<td class="bt bl">7</td>
+							<td class="bt">8</td>
+							<td class="bt br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">2</td>
+							<td class="bl">1</td>
+							<td class="">2</td>
+							<td class="br">3</td>
+							<td class="bl editable"><input type="text"></td>
+							<td class="">5</td>
+							<td class="br">6</td>
+							<td class="bl editable"><input type="text"></td>
+							<td class=" editable"><input type="text"></td>
+							<td class="br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">3</td>
+							<td class="bl bb">1</td>
+							<td class="bb">2</td>
+							<td class="br bb">3</td>
+							<td class="bl bb editable"><input type="text"></td>
+							<td class="bb">5</td>
+							<td class="br bb">6</td>
+							<td class="bl bb">7</td>
+							<td class="bb editable"><input type="text"></td>
+							<td class="br bb editable"><input type="text"></td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">4</td>
+							<td class="bl bt">1</td>
+							<td class="bt editable"><input type="text"></td>
+							<td class="br bt">3</td>
+							<td class="bl bt editable"><input type="text"></td>
+							<td class="bt">5</td>
+							<td class="br bt editable"><input type="text"></td>
+							<td class="bl bt editable"><input type="text"></td>
+							<td class="bt">8</td>
+							<td class="br bt">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">5</td>
+							<td class="bl">1</td>
+							<td class="">2</td>
+							<td class="br">3</td>
+							<td class="bl">4</td>
+							<td class="">5</td>
+							<td class="br">6</td>
+							<td class="bl">7</td>
+							<td class="">8</td>
+							<td class="br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">6</td>
+							<td class="bl bb">1</td>
+							<td class="bb editable"><input type="text"></td>
+							<td class="br bb">3</td>
+							<td class="bl bb editable"><input type="text"></td>
+							<td class="bb">5</td>
+							<td class="br bb">6</td>
+							<td class="bl bb">7</td>
+							<td class="bb">8</td>
+							<td class="br bb">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">7</td>
+							<td class="bl bt">1</td>
+							<td class="bt">2</td>
+							<td class="br bt editable"><input type="text"></td>
+							<td class="bl bt editable"><input type="text"></td>
+							<td class="bt">5</td>
+							<td class="br bt">6</td>
+							<td class="bl bt">7</td>
+							<td class="bt">8</td>
+							<td class="br bt">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">8</td>
+							<td class="bl">1</td>
+							<td class="">2</td>
+							<td class="br editable"><input type="text"></td>
+							<td class="bl">4</td>
+							<td class="">5</td>
+							<td class="br">6</td>
+							<td class="bl">7</td>
+							<td class="">8</td>
+							<td class="br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">9</td>
+							<td class="bl bb">1</td>
+							<td class="bb editable"><input type="text"></td>
+							<td class="bb br">3</td>
+							<td class="bb bl">4</td>
+							<td class="bb">5</td>
+							<td class="bb br">6</td>
+							<td class="bb bl">7</td>
+							<td class="bb">8</td>
+							<td class="bb br editable"><input type="text"></td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">X</td>
+							<td class="sudoku-options" colspan="9">
+								<div class="sudoku-fullscreen-trigger">
+									Enter Fullscreen
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div> <!-- .sudoku-container -->
+				<div class="sudoku-complete">
+					<!-- <div class="message">Congratulations !</div> -->
+					<div class="icon-checkmark"></div>
+				</div>
+			</div> <!-- .sudoku-wrapper -->
+		</div>
+		<div class="col six tablet-full mobile-full ">
+			<div id="sudoku2" class="sudoku-wrapper default-theme" data-md5="527fd30a1a2c35cb126e5ada85681edd">
+				<div class="sudoku-container">
+					<table>
+						<tr>
+							<td class="sudoku-key">1</td>
+							<td class="bt bl">1</td>
+							<td class="bt">2</td>
+							<td class="bt br editable"><input type="text"></td>
+							<td class="bt bl editable"><input type="text"></td>
+							<td class="bt editable"><input type="text"></td>
+							<td class="bt br">6</td>
+							<td class="bt bl">7</td>
+							<td class="bt">8</td>
+							<td class="bt br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">2</td>
+							<td class="bl">1</td>
+							<td class="">2</td>
+							<td class="br">3</td>
+							<td class="bl">4</td>
+							<td class="">5</td>
+							<td class="br">6</td>
+							<td class="bl">7</td>
+							<td class="">8</td>
+							<td class="br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">3</td>
+							<td class="bl bb">1</td>
+							<td class="bb">2</td>
+							<td class="br bb">3</td>
+							<td class="bl bb">4</td>
+							<td class="bb">5</td>
+							<td class="br bb">6</td>
+							<td class="bl bb">7</td>
+							<td class="bb">8</td>
+							<td class="br bb">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">4</td>
+							<td class="bl bt">1</td>
+							<td class="bt">2</td>
+							<td class="br bt">3</td>
+							<td class="bl bt">4</td>
+							<td class="bt">5</td>
+							<td class="br bt">6</td>
+							<td class="bl bt">7</td>
+							<td class="bt">8</td>
+							<td class="br bt">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">5</td>
+							<td class="bl">1</td>
+							<td class="">2</td>
+							<td class="br">3</td>
+							<td class="bl">4</td>
+							<td class="">5</td>
+							<td class="br">6</td>
+							<td class="bl">7</td>
+							<td class="">8</td>
+							<td class="br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">6</td>
+							<td class="bl bb">1</td>
+							<td class="bb">2</td>
+							<td class="br bb">3</td>
+							<td class="bl bb">4</td>
+							<td class="bb">5</td>
+							<td class="br bb">6</td>
+							<td class="bl bb">7</td>
+							<td class="bb">8</td>
+							<td class="br bb">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">7</td>
+							<td class="bl bt">1</td>
+							<td class="bt">2</td>
+							<td class="br bt">3</td>
+							<td class="bl bt">4</td>
+							<td class="bt">5</td>
+							<td class="br bt">6</td>
+							<td class="bl bt">7</td>
+							<td class="bt">8</td>
+							<td class="br bt">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">8</td>
+							<td class="bl">1</td>
+							<td class="">2</td>
+							<td class="br">3</td>
+							<td class="bl">4</td>
+							<td class="">5</td>
+							<td class="br">6</td>
+							<td class="bl">7</td>
+							<td class="">8</td>
+							<td class="br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">9</td>
+							<td class="bl bb">1</td>
+							<td class="bb ">2</td>
+							<td class="bb br">3</td>
+							<td class="bb bl">4</td>
+							<td class="bb">5</td>
+							<td class="bb br">6</td>
+							<td class="bb bl">7</td>
+							<td class="bb">8</td>
+							<td class="bb br">9</td>
+						</tr>
+						<tr>
+							<td class="sudoku-key">X</td>
+							<td class="sudoku-options" colspan="9">
+								<div class="sudoku-fullscreen-trigger">
+									Enter Fullscreen
+								</div>
+								<div class="sudoku-reset-trigger">
+									Reset
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div> <!-- .sudoku-container -->
+				<div class="sudoku-complete">
+					<!-- <div class="message">Congratulations !</div> -->
+					<div class="icon-checkmark"></div>
+				</div>
+			</div> <!-- .sudoku-wrapper -->
+		</div>
+	
+
+
+	</div>
+	
+</div>
+</body>
+</html>
