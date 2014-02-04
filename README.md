@@ -26,6 +26,40 @@ var defaults = {
 		onStart				: function(){console.log('Triggered: Start ')}
 	};
 ```
+### Available Methods:
+
+* readonly
+```js
+$(elem).sudoku('readonly', true);
+```
+* editable
+```js
+$(elem).sudoku('editable', true);
+```
+* fullscreen
+```js
+$(elem).sudoku('fullscreen', true);
+```
+* touch
+```js
+$(elem).sudoku('touch', true);
+```
+* keyboard
+```js
+$(elem).sudoku('keyboard', true);
+```
+* reset
+```js
+$(elem).sudoku('reset');
+```
+* hideOptions
+```js
+$(elem).sudoku('hideOptions');
+```
+* showOptions
+```js
+$(elem).sudoku('showOptions');
+```
 
 Live Demo
 ----------
