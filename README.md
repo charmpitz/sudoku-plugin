@@ -1,6 +1,8 @@
 JQuery Sudoku plugin
 =============
-
+Customize and create sudoku interfaces for playing or just presenting.
+* Responsive layout
+* Cross-browser support (tested in Chrome, Firefox, Safari, Opera, IE9)
 
 Customization
 -------------
