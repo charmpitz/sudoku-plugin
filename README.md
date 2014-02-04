@@ -26,7 +26,7 @@ var defaults = {
 
 Live Demo
 ----------
-[http://sudoku.andreipitz.eu]
+http://sudoku.andreipitz.eu
 
 
 Version
