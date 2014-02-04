@@ -6,7 +6,7 @@ JQuery Sudoku plugin
 Version
 ----
 
-2.0
+1.0
 
 Tech
 -----------
@@ -14,6 +14,9 @@ Tech
 JQuery Sudoku Plugin uses a number of open source projects to work properly:
 
 * [jQuery] 
+* [jQuery.Hammer]
+* [jQuery.Stopwatch]
+* [Underscore.js]
 
 
 
@@ -24,6 +27,8 @@ MIT
 
 
 [jQuery]:http://jquery.com
+[jQuery.Hammer]:http://eightmedia.github.io/hammer.js/
+[jQuery.Stopwatch]:https://plugins.jquery.com/tag/stopwatch/
+[Underscore.js]:http://underscorejs.org/
 
 
-    
