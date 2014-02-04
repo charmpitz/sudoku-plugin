@@ -4,7 +4,7 @@ Customize and create sudoku interfaces for playing or just presenting.
 * Responsive layout
 * Cross-browser support (tested in Chrome, Firefox, Safari, Opera, IE9)
 
-Customization
+Tehnical support
 -------------
 These are some default values. For more information try understanding the code itself.
 
@@ -37,15 +37,15 @@ Version
 1.0
 
 
-Tech
+Third parties
 -----------
 
-JQuery Sudoku Plugin uses a number of open source projects to work properly:
+JQuery Sudoku Plugin uses a number of open source projects to work (some of them are optional):
 
 * [jQuery] 
-* [jQuery.Hammer]
-* [jQuery.Stopwatch]
-* [Underscore.js]
+* [jQuery.Hammer] - Touch events library
+* [jQuery.Stopwatch] - Time counter (this is optional and has been used only in the demo)
+
 
 
 
@@ -58,6 +58,6 @@ MIT
 [jQuery]:http://jquery.com
 [jQuery.Hammer]:http://eightmedia.github.io/hammer.js/
 [jQuery.Stopwatch]:https://plugins.jquery.com/tag/stopwatch/
-[Underscore.js]:http://underscorejs.org/
+
 
 
