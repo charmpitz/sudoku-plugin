@@ -11,7 +11,7 @@ These are some default values. For more information try understanding the code i
 
 ```js
 var defaults = {
-		editable 			: true,
+    	editable 			: true,
 		touch 				: true,
 		touchKeyboard 		: true,
 		fullscreenMode 		: true,
@@ -26,55 +26,74 @@ var defaults = {
 		onStart				: function(){console.log('Triggered: Start ')}
 	};
 ```
-### Available Methods:
+
+</br>
+###Available Methods:
+---
+
+* **readonly**
 
 Makes the instance readonly
-* readonly
 ```js
 $(elem).sudoku('readonly');
 ```
+---
+
+* **editable**
 
 Enables editing capabilities
-* editable
 ```js
 $(elem).sudoku('editable', true);
 ```
+---
+
+* **fullscreen**
 
 Enable/Disable fullscreen mode on certain instance
-* fullscreen
 ```js
 $(elem).sudoku('fullscreen', true);
 ```
+---
+
+* **touch**
 
 Enable/Disable touch capabilities for the instance
-* touch
 ```js
 $(elem).sudoku('touch', true);
 ```
+---
+
+* **keyboard**
 
 Show/Hide the side-keyboard (**must** be enabled for touch)
-* keyboard
 ```js
 $(elem).sudoku('keyboard', true);
 ```
+---
+
+* **reset**
 
 Resets the cells
-* reset
 ```js
 $(elem).sudoku('reset');
 ```
+---
+
+* **hideOptions**
 
 Hides the options panel
-* hideOptions
 ```js
 $(elem).sudoku('hideOptions');
 ```
+---
+
+* **showOptions**
 
 Shows the options panel
-* showOptions
 ```js
 $(elem).sudoku('showOptions');
 ```
+---
 
 Live Demo
 ----------
