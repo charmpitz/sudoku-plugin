@@ -44,7 +44,7 @@ JQuery Sudoku Plugin uses a number of open source projects to work (some of them
 
 * [jQuery] 
 * [jQuery.Hammer] - Touch events library
-* [jQuery.Stopwatch] - Time counter (this is optional and has been used only in the demo)
+* [jQuery.Stopwatch] - Time counter (this is **optional** and has been used only in the demo)
 
 
 
