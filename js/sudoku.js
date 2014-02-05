@@ -73,7 +73,6 @@
 					    // console.log(md5);
 					    // console.log(elem.data('md5'));
 
-
 						if ( md5 == elem.data('md5') ) 
 						{
 							// onComplete Trigger
@@ -84,6 +83,8 @@
 					    }
 					    return true;
 					});
+
+					methods.fullscreen.call(this, true);
 				}
 				else
 				{
@@ -270,6 +271,47 @@
 		reset 		: function () { return $(this).each(function(){ $(this).find('.editable input').val(''); })}, 	
 		hideOptions : function () { return $(this).each(function(){ $(this).find('.sudoku-options').parent().hide(); });},
 		showOptions : function () { return $(this).each(function(){ $(this).find('.sudoku-options').parent().show(); });},
+		pauseGame 	: function (fn) {
+			
+			return $(this).each(function(){ 
+				var elem 				= $(this);
+				var cellsText 			= $(this).find('td').not('.sudoku-key, .sudoku-options, .editable').text();
+				var inputsValuesArray 	= $(this).find('td.editable input').map(function(){return $(this).val()}).toArray();
+				var inputsText 			= inputsValuesArray.join('');
+				$(this).data('paused', [cellsText, inputsValuesArray]);
+
+				$(this).find('td.editable input').val('');
+				$(this).find('td').not('.editable, .sudoku-key, .sudoku-options').text('');
+				methods.editable.call(this, false);
+				methods.touch.call(this, false);
+
+				if ($.isFunction( fn ))
+					fn.call( this, elem );
+
+			});
+		},
+		unpauseGame : function (fn) { 
+			return $(this).each(function(){
+				var elem 				= $(this);
+				var data 				= $(this).data('paused');
+				var cellsText 			= data[0];
+				var inputsValuesArray 	= data[1];
+
+				for (i=0; i<=cellsText.length; i++)
+					$(this).find('td').not('.editable, .sudoku-key, .sudoku-options').eq(i).text(cellsText.charAt(i));
+
+				for (i=0; i<=inputsValuesArray.length; i++)
+					$(this).find('td.editable input').eq(i).val(inputsValuesArray[i]);
+
+				$(this).removeAttr('data-paused');
+				methods.editable.call(this, true);
+				methods.touch.call(this, true);
+
+				if ($.isFunction( fn ))
+					fn.call( this, elem );
+
+			});
+		},
 	    init : function( options ) {
 
 
@@ -284,11 +326,15 @@
 					fullscreenEnterText	: 'Enter Fullscreen',
 					fullscreenExitText	: 'Exit Fullscreen',
 					resetText 			: 'Reset',
-					onComplete			: function(){console.log('Triggered: Complete ')},
-					onChange			: function(){console.log('Triggered: Change ')},
-					onFullscreenEnter	: function(){console.log('Triggered: FullscreenEnter ')},
-					onFullscreenExit	: function(){console.log('Triggered: FullscreenExit ')},
-					onStart				: function(){console.log('Triggered: Start ')}
+					pauseText			: 'Pause',
+					unpauseText			: 'Unpause',
+					onComplete			: function(){},
+					onChange			: function(){},
+					onFullscreenEnter	: function(){},
+					onFullscreenExit	: function(){},
+					onPause				: function(){},
+					onUnpause			: function(){},
+					onStart				: function(){}
 				};
 				var settings 			= $.extend( {}, defaults, options );
 				var elem 				= $(this);
@@ -297,6 +343,7 @@
 			    var editableCells 		= elem.find('table td.editable input');
 			    var sudokuOptions 		= sudokuContainer.find('td.sudoku-options');
 			    var fullscreenTrigger 	= sudokuOptions.find('.sudoku-fullscreen-trigger');
+			    var pauseTrigger 		= sudokuOptions.find('.sudoku-pause-trigger');
 			    var resetTrigger 		= sudokuOptions.find('.sudoku-reset-trigger');
 			    var current				= null;
 			    var fullscreenMode  	= false;
@@ -342,6 +389,30 @@
 				-----------------------------------------*/
 				if (settings.showOptions == false)
 					methods.hideOptions.call(this);
+
+				/* Pause Text
+				-----------------------------------------*/
+				pauseTrigger.html(settings.pauseText);	
+
+				/* Pause Watch
+				-----------------------------------------*/
+				var xthis = this;
+				console.log($(xthis));
+				pauseTrigger.click(
+					function(){
+
+						if (pauseTrigger.html() == settings.pauseText )
+						{
+							methods.pauseGame.call(xthis, settings['onPause']);
+							pauseTrigger.html(settings.unpauseText);
+						}
+						else 
+						{
+							methods.unpauseGame.call(xthis, settings['onUnpause']);
+							pauseTrigger.html(settings.pauseText);	
+						}
+					}
+				);
 
 				/* Responsive
 				-------------------------------------*/

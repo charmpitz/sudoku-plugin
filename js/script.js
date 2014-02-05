@@ -12,6 +12,8 @@ $(document).ready(function(){
 		touchKeyboard : true,
 		fullscreenEnterText : '<span class="glyph-large icon-resize-enlarge"></span>',
 		fullscreenExitText : '<span class="glyph-large icon-resize-shrink"></span>',
+		pauseText : '<span class="glyph-large icon-pause"></span>',
+		unpauseText : '<span class="glyph-large icon-play"></span>',
 		resetText : '<span class="glyph-large icon-cycle"></span>',
 		onComplete  : function(elem) { 
 

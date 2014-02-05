@@ -111,6 +111,17 @@
 							font-size: 1.4em;
 						}
 					}
+					.sudoku-pause-trigger {
+						cursor:pointer;
+						float:right;
+						padding-right: 5px;
+						margin-right: 10px;
+						span.icon-play, span.icon-pause {
+							position: relative;
+							top:4px;
+							font-size: 1.4em;
+						}
+					}
 				}
 				&.editable{
 	                background-color:white;
@@ -335,6 +346,9 @@
 }
 .sudoku-fullscreen .sudoku-reset-trigger > span.icon-cycle {
 	font-size: 1.4em!important;
+}
+.sudoku-pause-trigger .icon-pause, .sudoku-pause-trigger .icon-play {
+	font-size: 24px!important;
 }
 
 
