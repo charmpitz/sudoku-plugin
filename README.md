@@ -11,20 +11,24 @@ These are some default values. For more information try understanding the code i
 
 ```js
 var defaults = {
-    	editable 			: true,
-		touch 				: true,
-		touchKeyboard 		: true,
-		fullscreenMode 		: true,
-		showOptions			: true,
-		fullscreenEnterText	: 'Enter Fullscreen',
-		fullscreenExitText	: 'Exit Fullscreen',
-		resetText 			: 'Reset',
-		onComplete			: function(){console.log('Triggered: Complete ')},
-		onChange			: function(){console.log('Triggered: Change ')},
-		onFullscreenEnter	: function(){console.log('Triggered: FullscreenEnter ')},
-		onFullscreenExit	: function(){console.log('Triggered: FullscreenExit ')},
-		onStart				: function(){console.log('Triggered: Start ')}
-	};
+	editable 			: true,
+	touch 				: true,
+	touchKeyboard 		: true,
+	fullscreenMode 		: true,
+	showOptions			: true,
+	fullscreenEnterText	: 'Enter Fullscreen',
+	fullscreenExitText	: 'Exit Fullscreen',
+	resetText 			: 'Reset',
+	pauseText			: 'Pause',
+	unpauseText			: 'Unpause',
+	onComplete			: function(){},
+	onChange			: function(){},
+	onFullscreenEnter	: function(){},
+	onFullscreenExit	: function(){},
+	onPause				: function(){},
+	onUnpause			: function(){},
+	onStart				: function(){}
+};
 ```
 
 </br>
@@ -92,6 +96,22 @@ $(elem).sudoku('hideOptions');
 Shows the options panel
 ```js
 $(elem).sudoku('showOptions');
+```
+---
+
+* **pauseGame**
+
+Pauses the game
+```js
+$(elem).sudoku('pauseGame');
+```
+---
+
+* **unpauseGame**
+
+Unpauses the game
+```js
+$(elem).sudoku('unpauseGame');
 ```
 ---
 
