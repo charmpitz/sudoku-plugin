@@ -38,81 +38,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-accessibility:before {
+.icon-play:before {
   content: "a";
 }
-.icon-air:before {
-  content: "2";
-}
-.icon-arrow-left:before {
+.icon-pause:before {
   content: "b";
 }
-.icon-arrow-up:before {
-  content: "3";
-}
-.icon-atom:before {
+.icon-resize-enlarge:before {
   content: "c";
 }
-.icon-bolt:before {
-  content: "1";
-}
-.icon-cancel:before {
+.icon-resize-shrink:before {
   content: "d";
 }
-.icon-checkmark:before {
-  content: "e";
-}
-.icon-clock:before {
-  content: "f";
-}
-.icon-cloud:before {
-  content: "4";
-}
-.icon-cog:before {
-  content: "g";
-}
 .icon-cycle:before {
-  content: "h";
-}
-.icon-infinity:before {
-  content: "5";
-}
-.icon-light-bulb:before {
-  content: "i";
-}
-.icon-list:before {
-  content: "j";
-}
-.icon-record:before {
-  content: "6";
-}
-.icon-record2:before {
-  content: "k";
-}
-.icon-resize-enlarge:before {
-  content: "l";
-}
-.icon-resize-shrink:before {
-  content: "m";
-}
-.icon-star:before {
-  content: "7";
-}
-.icon-star2:before {
-  content: "8";
-}
-.icon-statistics:before {
-  content: "n";
-}
-.icon-stop:before {
-  content: "9";
-}
-.icon-trophy:before {
-  content: "o";
-}
-.icon-play:before {
-  content: "p";
-}
-.icon-pause:before {
-  content: "q";
+  content: "e";
 }

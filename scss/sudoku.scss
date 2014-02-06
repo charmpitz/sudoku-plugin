@@ -223,9 +223,9 @@
 	$palevioletred: darken(#db7093, 15%);
 
 	&.glyphs {
-		font-family: 'sudoku';
+		font-family: 'sudoku-plugin';
 		.sudoku-container table tr td:not(.sudoku-options){
-			font-family: 'sudoku';
+			font-family: 'sudoku-plugin';
 			font-size:20px!important;
 			&.editable input {
 				font-size:20px!important;
