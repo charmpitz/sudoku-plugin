@@ -1,12 +1,12 @@
 $(document).ready(function(){
-	$('#sudoku1').sudoku({
+	$('#sudoku2').sudoku({
 		editable	: false,
 		touch 		: false,
 		touchKeyboard : false,
 		fullscreenMode : false,
 		showOptions : false
 	});
-	$('#sudoku2').sudoku({
+	$('#sudoku1, #sudoku3').sudoku({
 		editable	: true,
 		touch 		: true,
 		touchKeyboard : true,
@@ -15,6 +15,14 @@ $(document).ready(function(){
 		pauseText : '<span class="glyph-large icon-pause"></span>',
 		unpauseText : '<span class="glyph-large icon-play"></span>',
 		resetText : '<span class="glyph-large icon-cycle"></span>',
+		onPause: function() {
+			elem = $(this);
+			elem.children().eq(2).addClass('active magictime tinUpIn');
+		},
+		onUnpause: function() {
+			elem = $(this);
+			elem.children().eq(2).removeClass('active magictime tinUpIn');
+		},
 		onComplete  : function(elem) { 
 
 			elem.children().eq(1).addClass('active magictime tinUpIn');

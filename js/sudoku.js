@@ -83,12 +83,10 @@
 					    }
 					    return true;
 					});
-
-					methods.fullscreen.call(this, true);
 				}
 				else
 				{
-					methods.readonly.call(this);
+					elem.find('input, .sudoku-keys').unbind('click tap keydown hold');
 				}
 			});
 
@@ -274,11 +272,10 @@
 		pauseGame 	: function (fn) {
 			
 			return $(this).each(function(){ 
-				var elem 				= $(this);
-				var cellsText 			= $(this).find('td').not('.sudoku-key, .sudoku-options, .editable').text();
+				var elem 			= $(this);
+				var cellsArray 		= $(this).find('td').not('.sudoku-key, .sudoku-options, .editable').map(function(){return parseInt($(this).text());});
 				var inputsValuesArray 	= $(this).find('td.editable input').map(function(){return $(this).val()}).toArray();
-				var inputsText 			= inputsValuesArray.join('');
-				$(this).data('paused', [cellsText, inputsValuesArray]);
+				$(this).data('paused', [cellsArray, inputsValuesArray]);
 
 				$(this).find('td.editable input').val('');
 				$(this).find('td').not('.editable, .sudoku-key, .sudoku-options').text('');
@@ -294,11 +291,11 @@
 			return $(this).each(function(){
 				var elem 				= $(this);
 				var data 				= $(this).data('paused');
-				var cellsText 			= data[0];
+				var cellsArray 			= data[0];
 				var inputsValuesArray 	= data[1];
 
-				for (i=0; i<=cellsText.length; i++)
-					$(this).find('td').not('.editable, .sudoku-key, .sudoku-options').eq(i).text(cellsText.charAt(i));
+				for (i=0; i<=cellsArray.length; i++)
+					$(this).find('td').not('.editable, .sudoku-key, .sudoku-options').eq(i).text(cellsArray[i]);
 
 				for (i=0; i<=inputsValuesArray.length; i++)
 					$(this).find('td.editable input').eq(i).val(inputsValuesArray[i]);

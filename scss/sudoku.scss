@@ -186,6 +186,33 @@
 			font-family: Arial;
 		}
 	}
+	.sudoku-paused {
+		display: none;
+		&.active {
+			display:block;
+		}
+		position: absolute;
+		top:0;
+		left:10%;
+		width: 90%;
+		height: 90%;
+		z-index: 500; 
+		.icon-pause{
+			position: absolute;
+			width: 50%;
+			height:150px;
+			left:0;
+			top:0;
+			bottom:0;
+			right:0;
+			overflow: hidden;
+			margin: auto;
+			line-height: 180px;
+			font-size: 120px;
+			text-align: center;
+		}
+
+	}
 } //.sudoku-wrapper
 
 
@@ -196,9 +223,9 @@
 	$palevioletred: darken(#db7093, 15%);
 
 	&.glyphs {
-		font-family: 'icomoon';
+		font-family: 'sudoku';
 		.sudoku-container table tr td:not(.sudoku-options){
-			font-family: 'icomoon';
+			font-family: 'sudoku';
 			font-size:20px!important;
 			&.editable input {
 				font-size:20px!important;
