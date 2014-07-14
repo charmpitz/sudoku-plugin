@@ -23,6 +23,7 @@ var defaults = {
 	unpauseText			: 'Unpause',
 	onComplete			: function(){},
 	onChange			: function(){},
+	onFill				: function(){}, 	// When all the editable cells are filled
 	onFullscreenEnter	: function(){},
 	onFullscreenExit	: function(){},
 	onPause				: function(){},
