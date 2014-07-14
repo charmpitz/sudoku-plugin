@@ -1,12 +1,12 @@
 $(document).ready(function(){
-	$('#sudoku2').sudoku({
+	$('#sudoku2, #sudoku1').sudoku({
 		editable	: false,
 		touch 		: false,
 		touchKeyboard : false,
 		fullscreenMode : false,
 		showOptions : false
 	});
-	$('#sudoku1, #sudoku3').sudoku({
+	$('#sudoku3').sudoku({
 		editable	: true,
 		touch 		: true,
 		touchKeyboard : true,
@@ -22,6 +22,45 @@ $(document).ready(function(){
 		onUnpause: function() {
 			elem = $(this);
 			elem.children().eq(2).removeClass('active magictime tinUpIn');
+		},
+		onFill : function(elem) {
+			s = 0, rows = 0, cols = 0, zones = 0;
+
+			for (i=0; i<9; i++)
+			{
+
+				// Check values on rows
+				s = 0;
+				elem.find(".r" + i).each(function(){
+				   value = $(this).data('val');
+				   if (isInt(parseInt(value))) s = s + parseInt(value);
+				});
+				console.log("row " + i +": " + s);
+
+				if (s != 45) rows++;
+
+				// Check values on columns
+				s = 0;
+				elem.find(".col" + i).each(function(){
+				   value = $(this).data('val');
+				   if (isInt(parseInt(value))) s = s + parseInt(value);
+				});
+				console.log("col " + i +": " + s);
+
+				if (s != 45) cols++;
+
+				// Check values on zones
+				s = 0;
+				elem.find(".z" + i).each(function(){
+				   value = $(this).data('val');
+				   if (isInt(parseInt(value))) s = s + parseInt(value);
+				});
+				console.log("zone " + i +": " + s);
+
+				if (s != 45) zones++;
+
+			}
+			alert("There are mistakes on " + rows + " rows, " + cols + " columns and " + zones + " zones");
 		},
 		onComplete  : function(elem) { 
 
