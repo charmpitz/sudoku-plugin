@@ -119,6 +119,7 @@ $(elem).sudoku('unpauseGame');
 Live Demos
 ----------
 http://sudoku.andreipitz.eu
+
 http://www.sudokuonline.nl/
 
 
